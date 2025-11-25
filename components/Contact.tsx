@@ -1,20 +1,48 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Loader2 } from 'lucide-react';
 import { SOCIAL_LINKS } from '../constants';
+
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mknlawwe';
 
 const Contact: React.FC = () => {
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate form submission
-    console.log("Form Submitted", formState);
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormState({ name: '', email: '', message: '' });
-    }, 3000);
+    setIsSubmitting(true);
+    setError('');
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formState.name,
+          email: formState.email,
+          message: formState.message,
+        }),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        setFormState({ name: '', email: '', message: '' });
+        setTimeout(() => {
+          setIsSubmitted(false);
+        }, 5000);
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (err) {
+      setError('Failed to send message. Please try again or contact me directly via email.');
+      console.error('Form submission error:', err);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -34,7 +62,9 @@ const Contact: React.FC = () => {
                 <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-zinc-800 flex items-center justify-center text-blue-600">
                   <Mail size={20} />
                 </div>
-                <span>abiodunadekunle354gmail.com</span>
+                <a href="mailto:abiodunadekunle354@gmail.com" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  abiodunadekunle354@gmail.com
+                </a>
               </div>
               <div className="flex items-center gap-4 text-zinc-600 dark:text-zinc-300">
                 <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-zinc-800 flex items-center justify-center text-blue-600">
@@ -114,11 +144,27 @@ const Contact: React.FC = () => {
                     onChange={e => setFormState({...formState, message: e.target.value})}
                   ></textarea>
                 </div>
+                {error && (
+                  <div className="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl text-red-600 dark:text-red-400 text-sm">
+                    {error}
+                  </div>
+                )}
                 <button
                   type="submit"
-                  className="w-full py-4 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold rounded-xl hover:bg-blue-600 dark:hover:bg-zinc-200 transition-colors"
+                  disabled={isSubmitting}
+                  className="w-full py-4 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-bold rounded-xl hover:bg-blue-600 dark:hover:bg-zinc-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
-                  Send Message
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send size={18} />
+                      Send Message
+                    </>
+                  )}
                 </button>
               </form>
             )}

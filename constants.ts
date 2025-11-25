@@ -1,11 +1,8 @@
 import { Instagram, Linkedin, Youtube, Mail, MapPin, Award, Clock, Trophy } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import { SocialLink, Testimonial } from './types';
 
-// REPLACE THIS URL WITH YOUR ACTUAL IMAGE URL
-export const PROFILE_IMAGE_URL = "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80"; 
-// To use the image you uploaded, you would typically host it (e.g., Imgur, S3) 
-// and paste the link above, or if running locally, put it in public folder.
-// Since I cannot see the file upload in the code context, I used a high-quality placeholder.
+export const PROFILE_IMAGE_URL = "/profile-image.jpeg";
 
 export const COACH_NAME = "Abiodun Adekunle";
 export const COACH_TITLE = "ITF Level 1 Certified Coach";
@@ -26,6 +23,11 @@ export const SOCIAL_LINKS: SocialLink[] = [
     platform: "Youtube",
     url: "https://www.youtube.com/@abiodun_tennis",
     icon: Youtube
+  },
+  {
+    platform: "WhatsApp",
+    url: "https://wa.me/2349015785424",
+    icon: FaWhatsapp
   }
 ];
 

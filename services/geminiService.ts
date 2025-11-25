@@ -1,9 +1,39 @@
-import { GoogleGenAI } from "@google/genai";
+// Lazy load to prevent module initialization errors
+let aiClient: any = null;
+let aiModule: any = null;
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const getAIClient = async () => {
+  if (aiClient) {
+    return aiClient;
+  }
+  
+  try {
+    // Dynamic import to prevent top-level initialization errors
+    if (!aiModule) {
+      aiModule = await import("@google/genai");
+    }
+    
+    const apiKey = process.env.API_KEY || process.env.GEMINI_API_KEY;
+    if (!apiKey) {
+      return null;
+    }
+    
+    aiClient = new aiModule.GoogleGenAI({ apiKey });
+    return aiClient;
+  } catch (error) {
+    console.warn("Gemini AI not available:", error);
+    return null;
+  }
+};
 
 export const getTennisAdvice = async (query: string): Promise<string> => {
   try {
+    const ai = await getAIClient();
+    
+    if (!ai) {
+      return "AI Coach service is not configured. Please contact Coach Abiodun directly for tennis advice.";
+    }
+
     const response = await ai.models.generateContent({
       model: 'gemini-2.5-flash',
       contents: query,

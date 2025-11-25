@@ -1,7 +1,22 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Send, Bot, Loader2, Sparkles } from 'lucide-react';
-import { getTennisAdvice } from '../services/geminiService';
 import { ChatMessage } from '../types';
+
+// Lazy import to prevent module load errors
+let getTennisAdvice: ((query: string) => Promise<string>) | null = null;
+
+const loadGeminiService = async () => {
+  if (!getTennisAdvice) {
+    try {
+      const service = await import('../services/geminiService');
+      getTennisAdvice = service.getTennisAdvice;
+    } catch (error) {
+      console.warn('Failed to load Gemini service:', error);
+      getTennisAdvice = async () => "AI Coach service is not available. Please contact Coach Abiodun directly for tennis advice.";
+    }
+  }
+  return getTennisAdvice;
+};
 
 const AICoach: React.FC = () => {
   const [messages, setMessages] = useState<ChatMessage[]>([
@@ -36,16 +51,28 @@ const AICoach: React.FC = () => {
     setInput('');
     setIsLoading(true);
 
-    const responseText = await getTennisAdvice(input);
+    try {
+      const getAdvice = await loadGeminiService();
+      const responseText = await getAdvice(input);
 
-    const botMessage: ChatMessage = {
-      role: 'model',
-      text: responseText,
-      timestamp: new Date()
-    };
+      const botMessage: ChatMessage = {
+        role: 'model',
+        text: responseText,
+        timestamp: new Date()
+      };
 
-    setMessages(prev => [...prev, botMessage]);
-    setIsLoading(false);
+      setMessages(prev => [...prev, botMessage]);
+    } catch (error) {
+      console.error('Error getting advice:', error);
+      const errorMessage: ChatMessage = {
+        role: 'model',
+        text: "Sorry, I encountered an error. Please try again or contact Coach Abiodun directly.",
+        timestamp: new Date()
+      };
+      setMessages(prev => [...prev, errorMessage]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
