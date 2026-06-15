@@ -5,8 +5,11 @@ import About from './components/About';
 import Services from './components/Services';
 import Testimonials from './components/Testimonials';
 import AICoach from './components/AICoach';
+import Booking from './components/Booking';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+
+const TypedNavbar = Navbar as React.ComponentType<{ darkMode: boolean; toggleTheme: () => void }>;
 
 function App() {
   // Theme State
@@ -36,7 +39,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-zinc-950 transition-colors duration-300">
-      <Navbar darkMode={darkMode} toggleTheme={toggleTheme} />
+      <TypedNavbar darkMode={darkMode} toggleTheme={toggleTheme} />
       
       <main>
         <Hero />
@@ -44,6 +47,7 @@ function App() {
         <Services />
         <Testimonials />
         <AICoach />
+        <Booking />
         <Contact />
       </main>
       

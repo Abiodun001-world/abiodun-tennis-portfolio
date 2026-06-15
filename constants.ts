@@ -37,23 +37,54 @@ export const STATS = [
   { label: "Coaching Style", value: "Modern & Tactical", icon: Trophy },
 ];
 
-export const TESTIMONIALS: Testimonial[] = [
+export const TESTIMONIALS = [
   {
-    name: "David O.",
-    role: "Junior Tournament Player",
-    content: "Coach Abiodun completely transformed my serve. Before training with him, I struggled with consistency, but now it's my biggest weapon. I recently won my first U-14 tournament thanks to his tactical advice!",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=100&h=100"
+    name: "Emmanuel Aboderin",
+    role: "Google Review",
+    rating: 5,
+    content:
+      "First training went great. Warmed up, did drills, worked on specific game aspects, and applied them. Coach Abiodun is really passionate about coaching tennis, and it shows.",
   },
   {
-    name: "Sarah Jenkins",
-    role: "Adult Club Player",
-    content: "I was nervous getting back into tennis after 10 years, but Abiodun made the process so enjoyable. He is patient, encouraging, and knows exactly how to explain complex techniques simply. My confidence is back!",
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=100&h=100"
+    name: "Sheyi A.",
+    role: "Local Guide • Google Review",
+    rating: 5,
+    content:
+      "From the get go, I was able to enjoy my game, amazing rallies with sharp forehand. I am improving on my backhand as well. I will always use again and recommend their services.",
   },
   {
-    name: "Fred J.",
-    role: "Tennis Parents",
-    content: "We are thrilled with our son's progress. Beyond the strokes, Coach Abiodun teaches discipline and sportsmanship. He truly cares about the holistic development of his students.",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100&h=100"
-  }
+    name: "Abdulrahman Oyinlola",
+    role: "Google Review",
+    rating: 5,
+    content:
+      "With a few months in the academy, I noticed great development in my game—forehand and backhand strokes improved. It's a nice academy for better development.",
+  },
+  {
+    name: "Mojeed Adeoye",
+    role: "Google Review",
+    rating: 5,
+    content:
+      "My rally consistency has improved and I'm working on my serve and volleys. Such a good academy for top-notch tennis development!",
+  },
+  {
+    name: "Tolu Madamori",
+    role: "Google Review",
+    rating: 5,
+    content:
+      "Really professional. Teaches the basics and paces you properly. He sends a session plan before each session so you know what to expect.",
+  },
+  {
+    name: "Adedamola Raji",
+    role: "Google Review",
+    rating: 5,
+    content:
+      "One of the best coaching experiences I've had. The patience and corrections were excellent. Great first session!",
+  },
+  {
+    name: "Victoria A. Ayodeji",
+    role: "Local Guide • Google Review",
+    rating: 5,
+    content:
+      "I've been training with Abiodun Tennis Academy since Q4 2024. Coach Abiodun is professionally licensed and delivers top-level training. Each session is intense and focused on improvement. I train at Adamasingba Stadium and always book in advance because slots fill quickly. Highly recommended for serious players.",
+  },
 ];
