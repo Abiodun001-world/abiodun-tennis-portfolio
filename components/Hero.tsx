@@ -29,9 +29,6 @@ const Hero: React.FC = () => {
                 Book a Session
                 <ArrowRight className="ml-2 h-5 w-5" />
               </a>
-              <a href="#ai-coach" className="inline-flex justify-center items-center px-8 py-4 bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 hover:border-blue-500 text-zinc-900 dark:text-white font-bold rounded-xl transition-all">
-                Ask AI Coach
-              </a>
             </div>
           </div>
 
