@@ -4,7 +4,7 @@ import { Service } from '../types';
 
 const services: Service[] = [
   {
-    title: "Private Lessons",
+    title: "Private & Online Lessons",
     description: "Personalized 1-on-1 coaching tailored to your specific technical needs, biomechanics, and match strategy.",
     price: "Contact for Rates",
     icon: User,
