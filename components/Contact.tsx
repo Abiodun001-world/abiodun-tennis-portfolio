@@ -70,7 +70,7 @@ const Contact: React.FC = () => {
                 <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-zinc-800 flex items-center justify-center text-blue-600">
                   <MapPin size={20} />
                 </div>
-                <span>Ibadan, Nigeria (Available for Travel and Relocation)</span>
+                <span>Ibadan, Nigeria (Available for international/worldwide coaching opportunities). </span>
               </div>
             </div>
 
