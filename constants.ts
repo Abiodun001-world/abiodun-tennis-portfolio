@@ -26,7 +26,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
   },
   {
     platform: "WhatsApp",
-    url: "https://wa.me/2349015785424",
+    url: "https://wa.me/2348164734487",
     icon: FaWhatsapp
   }
 ];
