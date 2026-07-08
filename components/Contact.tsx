@@ -62,8 +62,8 @@ const Contact: React.FC = () => {
                 <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-zinc-800 flex items-center justify-center text-blue-600">
                   <Mail size={20} />
                 </div>
-                <a href="mailto:abiodunadekunle354@gmail.com" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  abiodunadekunle354@gmail.com
+                <a href="mailto:abiodduntennisservices@gmail.com" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                  abioduntennisservices@gmail.com
                 </a>
               </div>
               <div className="flex items-center gap-4 text-zinc-600 dark:text-zinc-300">
