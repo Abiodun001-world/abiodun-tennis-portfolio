@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { initGA } from './analytics';
+import { HelmetProvider } from 'react-helmet-async';
 
 initGA();
 
@@ -13,6 +14,8 @@ if (!rootElement) {
 const root = ReactDOM.createRoot(rootElement);
 root.render(
   <React.StrictMode>
-    <App />
+    <HelmetProvider>
+      <App />
+    </HelmetProvider>
   </React.StrictMode>
 );

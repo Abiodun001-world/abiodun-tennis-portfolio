@@ -4,7 +4,8 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
 import Testimonials from './components/Testimonials';
-import Booking from './components/Booking';
+import FAQ from './components/FAQ';
+import FaqSchema from './components/FaqSchema';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -41,11 +42,12 @@ function App() {
       <TypedNavbar darkMode={darkMode} toggleTheme={toggleTheme} />
       
       <main>
+        <FaqSchema />
         <Hero />
         <About />
         <Services />
         <Testimonials />
-        <Booking />
+        <FAQ />
         <Contact />
       </main>
       
