@@ -9,7 +9,7 @@ type NavbarProps = {
 const navLinks = [
   { name: 'About', href: '#about' },
   { name: 'Services', href: '#services' },
-  { name: 'Booking', href: '#booking' },
+  { name: 'FAQ', href: '#faq' },
   { name: 'Contact', href: '#contact' },
 ];
 
