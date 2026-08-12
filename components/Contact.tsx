@@ -63,7 +63,7 @@ const Contact: React.FC = () => {
                   <Mail size={20} />
                 </div>
                 <a href="mailto:abiodduntennisservices@gmail.com" className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                  abioduntennisservices@gmail.com
+                  coach@abioduntennis.xyz
                 </a>
               </div>
               <div className="flex items-center gap-4 text-zinc-600 dark:text-zinc-300">
