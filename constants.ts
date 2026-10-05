@@ -16,7 +16,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
   },
   {
     platform: "Instagram",
-    url: "https://instagram.com/_abiodunadekunle",
+    url: "https://instagram.com/coachabioduntennis",
     icon: Instagram
   },
   {

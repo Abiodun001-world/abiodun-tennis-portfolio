@@ -53,7 +53,7 @@ const Navbar: React.FC<NavbarProps> = ({
         <div className="flex items-center gap-2 md:hidden">
           <button
             onClick={toggleTheme}
-            className="px-2 py-1 rounded border"
+            className="px-2 py-1 rounded border border-zinc-300 bg-zinc-100 text-zinc-900 shadow-sm transition hover:bg-zinc-200 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:hover:bg-zinc-700"
           >
             {darkMode ? '☀️' : '🌙'}
           </button>
@@ -62,7 +62,8 @@ const Navbar: React.FC<NavbarProps> = ({
             onClick={() =>
               setMobileMenuOpen(!mobileMenuOpen)
             }
-            className="p-2"
+            className="p-2 rounded-md border border-zinc-300 bg-zinc-100 text-zinc-900 shadow-sm transition hover:bg-zinc-200 dark:border-zinc-700 dark:bg-zinc-800 dark:text-white dark:hover:bg-zinc-700"
+            aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
           >
             {mobileMenuOpen ? (
               <X size={22} />
