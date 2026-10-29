@@ -21,7 +21,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
   },
   {
     platform: "Youtube",
-    url: "https://www.youtube.com/@abiodun_tennis",
+    url: "https://www.youtube.com/@AbiodunTennisServices",
     icon: Youtube
   },
   {
